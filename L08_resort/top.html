@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html> 
+<html>
+ <head>
+  <title> Welcome to HIMALAYA Resort </title> 
+ <style type='text/css'> 
+ td { font-size:12; text-align:center; } 
+ a:link {text-decoration:none; } 
+ a:visited {text-decoration:none;} 
+ a:hover {text-decoration:none; } 
+ a:acvite {text-decoration:none;} 
+ </style> 
+ <script language='javascript' type='text/javascript' > //<![CDATA[ 
+ var muCnt = 5; 
+ function fncShow(pos){ 
+ var i = 0; 
+ for( i; i<muCnt; i++ ) { 
+	var obj = document.getElementById("menu"+i); 
+	var obj2 = document.getElementById("m"+i); 
+	if( i == pos ) { 
+		obj.style.display = ''; 
+		obj2.style.color="#ff0000"; 
+	} else { 
+		obj.style.display = 'none';
+		obj2.style.color="#000000"; 
+	} 
+  } 
+} 
+function fncHide(pos){ 
+	var obj = document.getElementById("menu"+pos); 
+	obj.style.display = 'none'; 
+} 
+//]]>
+</script> 
+</head > 
+<body bgcolor="#E3EFFB">
+ <center>
+ <table cellpadding='0' cellspacing='1' border='0' width='750'>
+ <td width='150'><a href='main.jsp' target=main><img src="logo.png"  border='0'></a> 
+ </td> 
+ <td> 
+ <table cellpadding='0' cellspacing='1' border='0' width='600' height='60'> 
+	<tr height='30'> 	
+	<td width='100' onmouseover='fncShow(0);' id='m0'><font size=5 face=calibri color=skyblue><b>ABOUT</b> </font> </td> 
+	<td width='100' onmouseover='fncShow(1);' id='m1'><font size=5 face=calibri color=skyblue><b>&nbsp;LOCATION&nbsp;</b> </font> </td>  
+	<td width='100' onmouseover='fncShow(2);' id='m2'><font size=5 face=calibri color=skyblue><b>&nbsp;AROUND&nbsp;</b> </font> </td>  
+	<td width='100' onmouseover='fncShow(3);' id='m3'><font size=5 face=calibri color=skyblue><b>&nbsp;RESERVATION&nbsp;</b> </font></td> 
+	<td width='100' onmouseover='fncShow(4);' id='m4'><font size=5 face=calibri color=skyblue><b>&nbsp;NEWS</b></font></td> 
+	<td width=100'></td> 
+	</tr> 
+	<tr height='30'> 
+	<td colspan='6'> 
+	<table id='menu0' style='display:none;' cellpadding='0' cellspacing='0' border='0' width='600' height='30'> 
+		<tr> 
+			<td width='0' ></td> 
+			<td width='600' style='text-align:left;' > 
+				<font size=5 face=calibri>
+				<a href='main.jsp' target=main> 
+				<span onmouseover=this.style.color='skyblue' onmouseout=this.style.color='gray'><b>| RESORT  </b></span>
+				</font>
+				</a> 
+				<font size=5 face=calibri>
+				<a href='a_01.html' target=main>
+				<span onmouseover=this.style.color='skyblue' onmouseout=this.style.color='gray'><b>| VIP  </b></span> 
+				</font>
+				</a> 
+				<font size=5 face=calibri>
+				<a href='a_02.html' target=main> 
+				<span onmouseover=this.style.color='skyblue' onmouseout=this.style.color='gray'><b>| CABANA  </b></span> 
+				</font>
+				</a> 
+				<font size=5 face=calibri>
+				<a href='a_03.html' target=main> 
+				<span onmouseover=this.style.color='skyblue' onmouseout=this.style.color='gray'><b>| SUITE |</b></span>
+				</font>
+				</a>
+			</td> 
+		</tr> 
+	</table> 
+	<table id='menu1' style='display:none;' cellpadding='0' cellspacing='0' border='0' width='600' height='30'> 
+		<tr> 
+			<td width='100' ></td> 
+			<td width='500' style='text-align:left;' > 
+				<font size=5 face=calibri>
+				<a href='b_01.html' target=main> 
+				<span onmouseover=this.style.color='skyblue' onmouseout=this.style.color='gray'><b>| LOCATION  </b></span> 
+				</font>
+				</a> 
+				<font size=5 face=calibri>
+				<a href='b_02.html' target=main>
+				<span onmouseover=this.style.color='skyblue' onmouseout=this.style.color='gray'><b>| DIRECTION |</b></span> 
+				</font>
+				</a> 
+				
+			</td> 
+		</tr> 
+	</table> 
+	<table id='menu2' style='display:none;' cellpadding='0' cellspacing='0' border='0' width='600' height='30'> 
+		<tr> 
+			<td width='200' ></td> 
+			<td width='400' style='text-align:left;' >
+				<font size=5 face=calibri>			
+				<a href='c_01.html' target=main> 
+				 <span onmouseover=this.style.color='skyblue' onmouseout=this.style.color='gray'><b>| CLIMBING  </b></span> 
+				</font>
+				</a> 
+				<font size=5 face=calibri>
+				<a href='c_02.html' target=main>
+				<span onmouseover=this.style.color='skyblue' onmouseout=this.style.color='gray'><b>| BEACH </b></span> 
+				</font>
+				</a> 
+				<font size=5 face=calibri>
+				<a href='c_03.html' target=main> 
+				<span onmouseover=this.style.color='skyblue' onmouseout=this.style.color='gray'><b>| SPA |</b></span> 
+				</font>
+				</a> 
+			</td> 
+		</tr> 
+	</table> 	
+	<table id='menu3' style='display:none;' cellpadding='0' cellspacing='0' border='0' width='600' height='30'> 
+		<tr> 
+			<td width='300' ></td> 
+			<td width='500' style='text-align:left;' >
+				<font size=4 face=calibri>			
+				<a href='d_01.jsp' target=main> 
+				<span onmouseover=this.style.color='skyblue' onmouseout=this.style.color='gray'><b>|RESERVATIONS  </b></span> 
+				</font>
+				</a> 
+				<font size=4 face=calibri>
+				<a href='d_02.jsp' target=main>
+				<span onmouseover=this.style.color='skyblue' onmouseout=this.style.color='gray'><b>|BOOK </b></span> 
+				</font>
+				</a> 
+				<font size=4 face=calibri>
+				<a href='login_test.jsp' target=main> 
+				<span onmouseover=this.style.color='skyblue' onmouseout=this.style.color='gray'><b>|ADMIN </b></span> 
+				</font>
+				</a> 
+				<font size=4 face=calibri>
+				<a href='logout.jsp' target=main> 
+				<span onmouseover=this.style.color='skyblue' onmouseout=this.style.color='gray'><b>|ADM-LOGOUT |</b></span> 
+				</font>
+				</a> 
+			</td> 
+		</tr> 
+	</table> 
+	<table id='menu4' style='display:none;' cellpadding='0' cellspacing='0' border='0' width='600' height='30'> 
+		<tr> 
+			<td width='350' ></td> 
+			<td width='250' style='text-align:left;' > 
+				<font size=5 face=calibri>
+				<a href='gongji/gongji_list.jsp' target=main> 
+				<span onmouseover=this.style.color='skyblue' onmouseout=this.style.color='gray'><b>| NOTICE  </b></span> 
+				</font>
+				</a> 
+				<font size=5 face=calibri>
+				<a href='gongji/comment/gongji_list.jsp' target=main>
+				<span onmouseover=this.style.color='skyblue' onmouseout=this.style.color='gray'><b>| COMMENT |</b></span> 
+				</font>
+				</a> 
+			</td> 
+		</tr> 
+	</table> 
+	</td>
+	</tr>
+	</table>
+	</td>
+	</table>
+  </center>
+</body>
+</html>

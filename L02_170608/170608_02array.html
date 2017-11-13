@@ -1,0 +1,33 @@
+﻿<html>
+<head>
+<title>배열 - array</title>
+</head>
+<body>
+	<script>
+	var arr = new Array("빨간색", 1010, "deadfire", "Javascript", "XX");
+	
+	document.write("<H2>Orginal</H2>");
+	for(i=0; i<arr.length;i++){
+		document.write("arr["+i+"] : " +arr[i] + "<br>");
+	}
+	
+	arr.sort();
+	document.write("<HR><H2>기본정렬</H2>");
+	for(i=0; i<arr.length;i++){
+		document.write("arr["+i+"] : " +arr[i] + "<br>");
+	}
+	
+	function compare(a,b){
+		if(a<b) return 1;
+		else if(a>b) return -1;
+		else return 0;
+	}
+	
+	arr.sort( compare ); //역순정렬에 compare 함수 사용
+	document.write("<H2> 역순정렬 </H2>");
+	for(i=0; i<arr.length;i++){
+		document.write("arr["+i+"] : " +arr[i] + "<br>");
+	}
+	</script>
+</body>
+</html>

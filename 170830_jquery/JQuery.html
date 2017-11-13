@@ -1,0 +1,106 @@
+﻿<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	
+	<!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+	<link rel="stylesheet" href="jquery/jquery.mobile-1.4.5.min.css" />
+    <script src="jquery/demos/js/jquery.min.js"></script>	
+    <script src="jquery/jquery.mobile-1.4.5.min.js"></script>
+	
+	<!--PhotoSwipe-->
+	<!--<link rel="stylesheet" href="PhotoSwipe-master/dist/photodwipe.css">
+	<link rel="stylesheet" href="PhotoSwipe-master/dist/default-skin/default-skin.css">
+	<script src="PhotoSwipe-master/dist/photoswipe.min.js"></script>
+	<script src="PhotoSwipe-master/dist/photoswipe-ui-default.min.js"></script>-->
+	
+	
+	
+</head>
+<body align=center>
+	
+	
+    <div data-role="page" id="main"> 
+      <div data-role="header" data-theme="b">
+         <h1>메인페이지</h1>
+      </div> 
+      <div data-role="content" >
+         <h2>메인페이지입니다.</h2>
+         <p><a href="#sub1" data-role="button" data-inline="true" >서브페이지</a> </p>
+      </div> 
+      <div data-role="footer" >
+         <h2>Footer입니다.</h2>
+      </div> 
+   </div> 
+   <div data-role="page" id="sub1"> 
+      <div data-role="header">
+         <h1>서브페이지1</h1>
+      </div> 
+      <div data-role="content">
+         <h2>서브페이지1 입니다.</h2>
+         <p><a href="#sub2"  data-role="button" data-inline="true" data-direction="reverse" data-rel="dialog" data-transition="flip">서브페이지2</a></p>
+		 <a href="main.html" data-role="button" data-rel="back" data-theme="b" data-transition="slide">돌아가기</a>
+
+      </div> 
+      <div data-role="footer">
+         <h2>Footer입니다.</h2>
+      </div> 
+   </div> 
+	<div data-role="page" id="sub2"> 
+      <div data-role="header">
+         <h1>서브페이지2</h1>
+      </div> 
+      <div data-role="content">
+         <h2>서브페이지2 입니다.</h2>
+         <p><a href="#sub3"  data-role="button" data-inline="true" data-direction="reverse">서브페이지3</a></p>
+		 <a href="#sub2" data-role="button" data-rel="back" data-theme="b" data-transition="slide">돌아가기</a>
+      </div> 
+      <div data-role="footer">
+         <h2>Footer입니다.</h2>
+      </div> 
+   </div> 
+   <div data-role="page" id="sub3"> 
+      <div data-role="header">
+         <h1>서브페이지3</h1>
+      </div> 
+      <div data-role="content">
+         <h2>서브페이지3 입니다.</h2>
+         <p><a href="#sub4"  data-role="button" data-inline="true" data-direction="reverse" data-transition="slide">서브페이지4</a></p>
+		  <a href="#sub3" data-role="button" data-rel="back" data-theme="b">돌아가기</a>
+      </div> 
+      <div data-role="footer">
+         <h2>Footer입니다.</h2>
+      </div> 
+   </div> 
+   <div data-role="page" id="sub4"> 
+      <div data-role="header">
+         <h1>서브페이지4</h1>
+      </div> 
+      <div data-role="content">
+         <h2>서브페이지4 입니다.</h2>
+         <p><a href="picture/portfolio.htm"  data-role="button" data-inline="true" data-direction="reverse" data-rel="dialog">portfolio</a></p>
+		  <a href="#sub4" data-role="button" data-rel="back" data-theme="b">돌아가기</a>
+      </div> 
+      <div data-role="footer">
+         <h2>Footer입니다.</h2>
+      </div> 
+   </div> 
+   <!-- <div data-role="page" id="portfolio"> 
+      <div data-role="header">
+         <h1>portfolio</h1>
+      </div> 
+      <div data-role="content">
+         <h2>portfolio 입니다.</h2>
+		
+  <p>Alternative text - include a link <a href="picture/portfolio.htm">to the PDF!</a></p>
+
+         <p><a href="#main"  data-role="button" data-inline="true" data-direction="reverse" >메인페이지</a></p>
+		 <a data-icon="back">★★★Back★★★</a>
+      </div> 
+      <div data-role="footer">
+         <h2>Footer입니다.</h2>
+      </div> 
+   </div>  -->
+</body>

@@ -1,0 +1,175 @@
+﻿
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<%@ page contentType="text/html; charset=utf-8" %>
+<%@ page import="java.sql.*, javax.sql.*, java.io.*" %>
+<%@ page import="java.text.SimpleDateFormat, java.util.GregorianCalendar, java.util.Locale" %>
+
+
+<html>
+<head>
+	<style>
+		.button{
+			height: 50px;
+			width: 50px;
+			border-radius: 50px;
+			border:1x solid #000;
+			background-Color:#323948;
+			font:12px 굴림;
+			font-weight:bold;
+			color:#FFFFFF;
+			width:130; height:30;
+		}
+	
+	</style>
+</head>
+<body BACKGROUND="image/bg.png"> <!--검청색 배경-->
+	
+
+
+	<!--D3.js-->
+	<div class="one-graph"></div>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="/js/d3_app.js"></script>
+
+
+
+
+
+	<table cellspacing=0 WIDTH=100% HEIGHT=100% border=1 align=center bordercolor="gray"> <!--가장 큰테이블-->
+		<tr align=center>
+		<td rowspan=5 WIDTH=5%>메뉴</td>
+		
+		<td rowspan=5 WIDTH=2% BACKGROUND="image/bg2.png"></td><!--메뉴와 서버 사이의 빈공간-->
+		
+		<td colspan=5 HEIGHT=10% BACKGROUND="image/bg2.png">											<!--최상위-->
+			
+		</td><!--최상위-->
+		
+		<td rowspan=5 WIDTH=2% BACKGROUND="image/bg2.png"></td><!--서버와 화면 오른쪽 끝 사이의 빈공간-->
+		</tr>
+		
+		<!--서버쪽 시작-->
+		<tr align=center BACKGROUND="image/bg2.png" style="border:1px solid #03CDC8;">
+		<td HEIGHT=87%>
+
+		<table border=1 width=100% height=49% cellspacing=0 bordercolor=red>
+			<tr>
+				<td width=31% BACKGROUND="image/bg.png">1</td>
+				<td width=1% BACKGROUND="image/bg2.png"></td>
+				<td width=auto BACKGROUND="image/bg.png">
+				
+				<script>
+				
+				# javascript
+				var w = 250, h = 250;
+				var graphData = [50, 30, 12, 5, 3];
+				var colorData = ["red", "orange", "yellow", "blue", "purple"];
+				var pie = d3.pie();
+				var arc = d3.arc().innerRadius(40).outerRadius(100);
+
+				var svg = d3.select(".one-graph")
+					.append("svg")
+					.attr("width", w)
+					.attr("height", h)
+					.attr("id", "graphWrap");
+
+				var g = svg.selectAll(".pie")
+					.data(pie(graphData))
+					.enter()
+					.append("g")
+					.attr("class", "pie")
+					.attr("transform","translate("+w/2+","+h/2+")");
+
+				// path 태그로 차트에 색을 넣기
+				g.append("path")
+					// .attr("d", arc) // 미리 색을 칠해놓음
+					.style("fill", function(d, i) {
+						return colorData[i];
+					}) // 애니메이션이 싫을경우 arc 를 활성화시키고 아래내용을 주석
+					.transition()
+					.duration(400)
+					.delay(function(d, i) { // 그릴 원 그래프의 시간을 어긋나게 표시
+						return i * 400;
+					})
+					.attrTween("d", function(d, i) { // 보간 처리
+						var interpolate = d3.interpolate(
+							{startAngle : d.startAngle, endAngle : d.startAngle}, // 각 부분의 시작 각도
+							{startAngle : d.startAngle, endAngle : d.endAngle} // 각 부분의 종료 각도
+						);
+						return function(t){
+							return arc(interpolate(t)); // 시간에 따라 처리
+						}
+					});
+
+				// text 태그로 배열 값 넣기
+				g.append("text")
+					.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+					.attr("dy", ".35em")
+					.style("text-anchor", "middle")
+					.text(function(d, i) {
+						return graphData[i] + "%";
+					});
+
+				// text 정 중앙에 텍스트 넣기
+				svg.append("text")
+					.attr("class", "total")
+					.attr("transform", "translate("+(w/2-35)+", "+(h/2+5)+")")
+					.text("합계:" + d3.sum(graphData));
+				
+				</script>
+				
+				
+				
+				
+				
+				</td>
+			</tr>
+		</table>
+		<table height=1% width=100% BACKGROUND="image/bg2.png">
+			<tr>
+				<td colspan=2> </td>
+			</tr>
+		</table>
+		
+		<table border=1 width=100% height=49% cellspacing=0 bordercolor=red >
+			<tr >
+				<td width=45% BACKGROUND="image/bg.png">3</td>
+				<td>4</td>
+				<td>5</td>
+				
+			</tr>
+		</table>
+		 <!-- <table cellspacing=0 WIDTH=100% HEIGHT=100% border=1 align=center bordercolor="red">
+			<tr>
+				<td >1</td>
+				<td colspan="4">2</td>
+			</tr>
+			
+		
+			
+				<tr align=center BACKGROUND="image/bg2.png">
+					<td colspan=5 HEIGHT=3%></td><!--서버 6개 사이의 빈공간-->
+				<!--</tr>
+	
+			
+			<tr>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+				<td>7</td>
+			</tr>
+			</table> -->
+			
+		</td>
+		</tr>
+	
+		<tr align=center BACKGROUND="image/bg2.png">
+			<td colspan=7 HEIGHT=3%>아래공간</td>			
+		</tr>
+		
+		
+		
+	</table> <!--가장 큰테이블-->
+
+</body>

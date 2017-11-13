@@ -1,0 +1,18 @@
+#chart {
+    width: 150px;
+    height: 150px;    
+}
+
+/* don't do anything fancy when hovering */
+#chart .c3-defocused.c3-target {
+    opacity: 1 !important;
+}
+
+#chart text {
+    fill: #ccc;
+}
+
+#chart .c3-chart-arcs-title {
+    fill: white;
+    font-size: 3em;
+}

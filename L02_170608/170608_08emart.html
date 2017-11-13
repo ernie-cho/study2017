@@ -1,0 +1,145 @@
+﻿<html>
+<title>e mart 영수증 출력</title>
+<head>
+	<script>
+	var d = new Date();
+	document.write("<table border = 0 width=450 cellspacing = 0 cellpadding = 0>");
+	document.write("<tr>");
+	document.write("<td align=center width=250 >"+"<font size = 7>"+"<strong>"+"emart"+"</font size>"+"</strong>"+"</td>");	
+	document.write("<td align=left width=300>"+"<p>"+"이마트&nbsp죽전점 (031)888-1234"+
+	"<br>"+"208-86-50918&nbsp이갑수"+"<br>"+"용인시&nbsp수지구&nbsp포은대로&nbsp552"+"</p>"+"</td>");			
+	document.write("</tr>");
+	document.write("</table>");
+	document.write("<table border = 0 width=450 cellspacing = 2 cellpadding = 2>");
+	document.write("<td align=left >"+"<p>"+"영수증&nbsp미지참시&nbsp교환/환불&nbsp불가(30일)"+
+	"<br>"+"교환/환불&nbsp구매점에서&nbsp가능(결제카드지참)"+"<br>"+"체크카드/신용카드&nbsp청구취소&nbsp반영은"+"<br>"+
+	"최대&nbsp3~5일&nbsp소요&nbsp(주말,공휴일제외)"+"</p>"+"</td>");
+	document.write("<tr>");
+	document.write("<td align=left width=100>"+"[구&nbsp매]"+(d.getYear()+1900)+"-0"+(d.getMonth()+1)+"-0"+d.getDate()+" "+
+	d.getHours()+":"+d.getMinutes()+"</td>");
+	document.write("<td align=right width=140>"+"POS: 0009-2418"+"</td>");
+	document.write("</tr>");
+	document.write("</table>");
+	
+	
+	
+	</script>
+</head>
+<body>
+<script>
+	var d = new Date();
+	var itemList = new Array("초코에몽180ml*4","BE정장벨트15F-16BK","(G)기본고무줄4-7","서울우유 2.3L","그릭 베리믹스95g*8",
+								"하림 치킨너겟480+1","로레알헤어오일브리","바나나스페셜 240ml","로투스비스킷312.5G","풀무원 치즈&치즈",
+								"균)HG 은사수세미 2","강원도 원주 햇감자","커피맛우유 240ml*4","트리오 투명한생각","노브랜드 매일채움",
+								"밀키푸딩커스터드2","국내산프리미엄양파","달링다운냉장꾸리살","▲제주등심카레용","데톨핸드워쉬리필20",
+								"냉동블루베리1.13kg","얼갈이김치","봉평샘물500ml 3개입 ","청송사과 5입/봉","스판반팔티 R넥BLACk",
+								"DW트렌치코트NAVYS","치키타 슈퍼프리미엄","당근 ","얼음","풀무원샘물",
+								"바나나요구르트","조지아캔커피","참이슬프레쉬6개입*3sn","새우깡한정판매운맛","하이트 맥주");
+	
+	var price = new Array(3780,1500,200,9500,5980,		   //상품가격 정보 배열
+							10000,13500,5900,2980,4700,
+							9900,14400,4250,2700,9800,
+							2980,2500,10130,4060,3900,
+							1240,1000,8500,9800,9900,
+							10000,5400,5400,1200,5000,
+							400,1500,1000,1500,2750);
+	
+	var noTax = new Array(true,true,false,true,false    //과세물품 구분 배열
+						,true,false,true,false,true
+						,true,false,true,false,false
+						,false,true,true,false,true
+						,true,false,true,true,true
+						,false,false,false,true,false
+						,true,true,false,true,false);
+	
+	var count = new Array(1,2,1,1,1,		//수량 정보 배열
+						1,1,2,1000,2,
+						2,1,1,6,3,
+						1,2,5,1,1,
+						10,2,1,1,1,
+						1,23,2,3,1,
+						3,1,9,1,2);		
+	var taxFree = 0;  //면세물품용 변수
+	var taxPrice = 0; //과세물품
+	var totalPrice = 0; //총 합계 금액
+	var taxation = 0;//부과세
+	var asterisk = "*"; //비과세 아스타리스트 출력;
+	var star = "*"; //비과세 아스타리스트 출력;
+	var numZero ;
+	function table(){ //영수증 내용물 출력 함수
+	document.write("<tr>");
+	document.write("<td colspan=5><HR></td>");
+	document.write("</tr>");
+		for( i=0; i < itemList.length; i++){
+		
+			if(noTax[i] == true){
+			 star = asterisk;
+			 }else {
+			 star = " ";
+			 }
+			 if(i < 9){
+				numZero = ("0");
+			 }else{
+				numZero = ("");
+			 }
+			 
+		document.write("<tr>");
+		document.write("<td width=1 >"+numZero+(i+1)+star+"&nbsp"+"</td>");
+		document.write("<td width=200>"+(itemList[i])+"</td>");
+		document.write("<td width=70 align = right>"+(price[i].toLocaleString('en'))+"</td>");
+		document.write("<td width=70 align = right>"+(count[i]).toLocaleString('en')+"</td>");
+		document.write("<td width=100 align = right>"+(price[i]*count[i]).toLocaleString('en')+"</td>");
+		document.write("</tr>");
+		if(noTax[i] == true){ //금액계산 부분
+			taxFree += price[i]*count[i];
+		}
+		totalPrice += price[i]*count[i];
+		taxPrice = (totalPrice - taxFree)/1.1;
+		taxation = totalPrice - taxPrice - taxFree;		
+		}
+	}										
+	
+	//실제 출력부분
+	document.write("<table border = 0 width=450 cellspacing = 0 cellpadding = 0>");
+	document.write("<tr>");
+	document.write("<td colspan=5><HR></td>");
+	document.write("</tr>");
+	document.write("<tr>");
+	document.write("<td align=left width=50% colspan=2>"+"상품명");	
+	document.write("<td align=right width=100>"+"단&nbsp가");
+	document.write("<td align=right width=100>"+"수량");
+	document.write("<td align=right width=200 colspan=2>"+"금&nbsp액"+"<br>");
+	document.write("</tr>");
+	document.write("<tr>");
+	table();
+	document.write("</tr>");
+	document.write("</table>");
+	document.write("<table border = 0 width=450 cellspacing = 0 cellpadding = 0>");
+	document.write("<tr><td align=right width=200>"+"<strong>"+"(*)면&nbsp세&nbsp물&nbsp품"+"</strong>"+"</td>");
+	document.write("<td align=right width=200>"+"<strong>"+taxFree.toLocaleString('en')+"</strong>"+"</td></tr>");
+	document.write("<tr><td align=right width=200>"+"<strong>"+"과&nbsp세&nbsp물&nbsp품"+"</strong>");
+	document.write("<td align=right width=200>"+"<strong>"+(Math.round(taxPrice)).toLocaleString('en')+"</strong>"+"</td></tr>");
+	document.write("<tr><td align=right width=200>"+"<strong>"+"부&nbsp  &nbsp가&nbsp  &nbsp세"+"</strong>");
+	document.write("<td align=right width=200>"+"<strong>"+(Math.round(taxation)).toLocaleString('en')+"</strong>"+"</td></tr>");
+	document.write("<tr><td align=right width=200>"+"<strong>"+"합&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp계"+"</strong>");
+	document.write("<td align=right width=200>"+"<strong>"+totalPrice.toLocaleString('en')+"</strong>"+"</td></tr>");	
+	document.write("<tr><td align=lest width=200>"+"<strong>"+"결&nbsp제&nbsp대&nbsp상&nbsp금&nbsp액"+"</strong>");
+	document.write("<td align=right width=200>"+"<strong>"+totalPrice.toLocaleString('en')+"</strong>"+"</td></tr>");
+	document.write("<tr>");
+	document.write("<td colspan =2 >"+"<HR></td>");
+	document.write("</tr>");
+	document.write("</table>");	
+	document.write("<table border = 0 width=450 cellspacing = 0 cellpadding = 0>");
+	document.write("<tr><td align=lest width=200>"+"<strong>"+"0024&nbsp하&nbsp&nbsp나"+"</strong>");
+	document.write("<td align=right width=200>"+"<strong>"+"5417**8890/07850246"+"</strong>"+"</td></tr>");
+	document.write("<tr><td align=lest width=200>"+"<strong>"+"카드결제"+"</strong>");
+	document.write("<td align=right width=200>"+"일시불&nbsp/&nbsp"+totalPrice.toLocaleString('en')+"</strong>"+"</td></tr>");	
+	document.write("<tr>");
+	document.write("<td colspan =2 >"+"<HR></td>");
+	document.write("</tr>");
+	document.write("</table>");
+	document.write("<strong>"+"홍*두&nbsp고객님의&nbsp포인트&nbsp현황입니다."+"</strong>");
+	
+</script>
+</body>
+</html>

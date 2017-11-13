@@ -1,0 +1,105 @@
+﻿<html>
+<head>
+<script>
+function OnlyNumber(obj,chkint,chkint2){
+  if(isNaN(obj.value) || obj.value.match(/\s/g)) {
+    alert("0~100까지 숫자를 입력해주세요");
+    obj.value="";
+    obj.focus();
+    return false;
+  }
+  if(obj.value > Number(chkint)) {
+    alert(chkint +" 이하의 숫자만 가능합니다.");
+    obj.value="";
+    obj.focus();
+    return false;
+  }
+  if(obj.value < Number(chkint2)) {
+    alert(chkint2 +" 이상의 숫자만 가능합니다.");
+    obj.value="";
+    obj.focus();
+    return false;
+  }
+  
+}
+
+function CheckHangul(name) {
+    strarr = new Array(name.value.length);
+    schar = new Array('/','.','>','<',',','?','}','{',' ','\\','|','(',')','+','=','@','!','#',
+	'$','%','^','&','*','_','§','※','☆','★','○','●','◎','◇','◆','□','■','△','▲','▽','▼','→',
+	'←','↑','↔','〓','◁','◀','▷','▶','♤','♠','♡','♥','♧','♣','⊙','◈','▣','◐','◑','◑',
+	'▒','▤','▥','▨','▧','▦','▩','♨','☏','☎','☜','☞','¶','†','‡','↕','↗','↙','↖','↘',
+	'♭','♩','♪','♬','㉿','㈜','№','㏇','™','㏂','㏘','℡','®','ª','º','㉾');
+    for (i=0; i<name.value.length; i++)    {
+        for (j=0; j<schar.length; j++)        {
+            if (schar[j] ==name.value.charAt(i))
+            {
+                alert("이름은 한글입력만 가능합니다.");
+				name.value="";
+                //document.registform.mem_name.focus();
+                return false;
+            }
+            else
+                continue;
+        }
+        strarr[i] = name.value.charAt(i)
+        if ((strarr[i] >=0) && (strarr[i] <=9))
+        {
+            alert("이름에 숫자가 있습니다. 이름은 한글입력만 가능합니다.");
+			name.value="";
+            //document.registform.mem_name.focus();
+            return false;
+        }
+
+        else if ((escape(strarr[i]) > '%60') && (escape(strarr[i]) <'%80') )
+        {
+            alert("이름에 특수문자가 있습니다. 이름은 한글입력만 가능합니다.");
+			name.value="";
+            //document.registform.mem_name.focus();
+            return false;
+        }
+        else
+        {
+            continue;
+        }
+    }
+    return true;
+}
+</script>
+</head>
+<body>
+<table border=1 width = 400>
+  <form method="post" action="170612_07addInsert.jsp">
+  <input type="submit" value="전송">
+	<tr>
+	<td width = 20% align = center>이름 </td>
+	<td width = 80% align = center><input type="text" name="username" onblur=CheckHangul(this) required></td>
+	</tr>
+
+	<tr>
+	<td width = 20% align = center>학번</td>
+	<td width = 80% align = center>자동부여</td>
+	</tr>
+
+	<tr>
+	<<td width = 20% align = center>국어</td>
+	<td width = 80% align = center><input type="text" name="twicekor" required onblur=OnlyNumber(this,100,0)></td>
+	</tr>
+
+	<tr>
+	<<td width = 20% align = center>영어</td>
+	<td width = 80% align = center><input type="text" name="twiceeng" required onblur=OnlyNumber(this,100,0)></td>
+	</tr>
+
+	<tr>
+	<<td width = 20% align = center>수학</td>
+	<td width = 80% align = center><input type="text" name="twicemat" required onblur=OnlyNumber(this,100,0)></td>
+	</tr>
+
+	
+</form>
+</table>
+
+
+</body>
+</html>

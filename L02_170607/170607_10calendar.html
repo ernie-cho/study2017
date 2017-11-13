@@ -1,0 +1,23 @@
+﻿<html>
+<head>
+<script>
+	var d = new Date(); //2020년 12월 31일
+					//년도 출력하기 위해 1900을 더해줌
+	document.write("년도는 : " + (d.getYear()+1900)+" " + 
+				" 월은 : " +(d.getMonth()+1) + //월을 출력하기 위해 1을 더해줌
+				" 일은 : " +(d.getDate()) +	//일자를 출력
+				" 요일은 : " +(d.getDay()) +	//요일을 출력
+				" 시는 : " +(d.getHours()) +	//시간을 출력
+				" 분은 : " +(d.getMinutes()) +//분을 출력
+				" 초는 : " +(d.getSeconds()) +//초를 출력
+				" 밀리초 : " +(d.getMilliseconds()) + "<HR>");//밀리초를 출력하고 구분선을 출력
+		
+		d.setYear(2010); //2010년으로 바꾼다
+		document.write(d+"<HR>"); //년도를 바꾸고 구분선을 출력함
+		d.setMonth(7); //8월로 바꾼다.
+		document.write(d +"<HR>");//월을 바꾸고 구분선을 출력함
+
+</script>
+
+</head>
+</html>

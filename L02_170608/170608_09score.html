@@ -1,0 +1,112 @@
+﻿<html>
+<head>
+<title>성적집계표</title>
+	<script>
+	var name2 = new Array("김영수","장성훈","최민준","이영호","배정남",
+					"송영식","배정웅","이정수","손광수","김중수",
+					"김영철","윤종수","이정호","이영환","조성호",
+					"최진호","윤상철","김성진","황상연","양준혁",
+					"최고나","최빛나","이한별","김이레","이선영",
+					"최수지","김정현","오유경","이채리","장지연");
+						
+	var kor = new Array(85,75,80,85,50,	//국어 점수 배열
+						90,85,65,75,40,
+						100,95,75,80,75,
+						85,90,90,85,75,
+						85,95,85,65,60,
+						90,80,95,100,100);
+	var eng = new Array(85,75,80,85,50,	//영어 점수 배열
+						90,85,65,75,90,
+						80,95,65,80,95,
+						90,80,90,95,85,
+						80,75,85,65,60,
+						95,85,90,100,90);
+	var mat = new Array(95,85,90,75,80,	//수학 점수 배열
+						80,65,75,85,60,
+						100,75,55,70,85,
+						75,70,100,80,60,
+						90,80,75,85,80,
+						95,85,85,95,100);
+	var d = new Date();
+	var dateZero;
+	if((d.getMonth()+1) <10){
+		dateZero = "0";
+	}else{
+		dateZero ="";
+	}
+	document.write("<table border = 0 width=450 cellspacing = 0 cellpadding = 0>");
+	document.write("<tr><td align=center>"+"성적집계표"+"</td></tr>");
+	document.write("<tr><td align=right>"+"출력일자&nbsp:&nbsp"+(d.getYear()+1900)
+	+"."+dateZero+(d.getMonth()+1)+"."+dateZero+d.getDate()+"&nbsp"+d.getHours()+":"+d.getMinutes()
+	+":"+d.getSeconds()+"</td></tr>");
+	document.write("<tr><td>"+"<HR>"+"</hr></td></tr>");
+	document.write("</table>");
+	document.write("<table border = 0 width=450 cellspacing = 0 cellpadding = 0>");
+	document.write("<tr><td width=10>"+"번호"+"</td>");
+	document.write("<td width=10>"+"이름"+"</td>");
+	document.write("<td width=7 align = center>"+"국어"+"</td>");
+	document.write("<td width=7 align = center>"+"영어"+"</td>");
+	document.write("<td width=10 align = center>"+"수학"+"</td>");
+	document.write("<td width=10 align = center>"+"총점"+"</td>");
+	document.write("<td width=10 align = right>"+"평균"+"</td></tr>");
+	document.write("<tr><td colspan =7>"+"<HR>"+"</HR>"+"</td></tr>");	
+	document.write("</table>");
+	//document.write("<tr><td>"+"<HR>"+"</HR>"+"</td></tr>");
+	//document.write("<br>");
+	</script>
+</head>
+<body>
+<script>
+	var total = 0 , total2 =0;
+	var avg = 0 , avg2 = 0;
+	var numZero;
+	var korSum=0, engSum=0, matSum=0, avgSum=0;
+	document.write("<table border = 0 width=450 cellspacing = 0 cellpadding = 0>");
+	for(i=0; i<name2.length; i++){
+		document.write("<tr>");
+		if( i < 9){
+			numZero = ("00");
+		}else{
+			numZero = ("0");
+		}
+		total = kor[i]+eng[i]+mat[i];
+		avg = total/3;
+		document.write("<td width=10 align =right>"+numZero+(i+1)+"</td>");
+		document.write("<td width=50 align =right>"+name2[i]+"</td>");
+		document.write("<td width=40 align =right>"+kor[i]+"</td>");
+		document.write("<td width=40 align =right>"+"&nbsp"+eng[i]+"</td>");
+		document.write("<td width=40 align =right>"+"&nbsp"+mat[i]+"</td>");
+		document.write("<td width=50 align =right>"+total+"</td>");
+		document.write("<td width=50 align =right>"+(Math.round(avg)).toLocaleString('en')+"</td>");
+		document.write("</tr>");
+		korSum += kor[i];
+		engSum += eng[i];
+		matSum += mat[i];
+		avgSum += avg;
+	}
+	document.write("</table>");
+	 total2 = korSum+engSum+matSum;
+	
+	document.write("<table border = 0 width=450 cellspacing = 0 cellpadding = 0>");
+	document.write("<tr><td colspan =7>"+"<HR>"+"</HR>"+"</td></tr>");
+	document.write("<tr>");
+	document.write("<td width=68 align =left>"+"합계"+"</td>");
+	document.write("<td width=20 align =right>"+korSum.toLocaleString('en')+"</td>");
+	document.write("<td width=30 align =right>"+engSum.toLocaleString('en')+"</td>");
+	document.write("<td width=20 align =right>"+matSum.toLocaleString('en')+"</td>");
+	document.write("<td width=46 align =right>"+total2.toLocaleString('en')+"</td>");
+	document.write("<td width=45 align =right>"+(Math.round(avgSum)).toLocaleString('en')+"</td>");
+	document.write("</tr>");
+	document.write("<tr>");
+	document.write("<td width=68 align =left>"+"평균"+"</td>");
+	document.write("<td width=20 align =right>"+Math.round(korSum/name2.length).toLocaleString('en')+"</td>");
+	document.write("<td width=30 align =right>"+Math.round(engSum/name2.length).toLocaleString('en')+"</td>");
+	document.write("<td width=20 align =right>"+Math.round(matSum/name2.length).toLocaleString('en')+"</td>");
+	document.write("<td width=46 align =right>"+Math.round(total2/(name2.length)).toLocaleString('en')+"</td>");
+	document.write("<td width=45 align =right>"+(Math.round(avgSum/name2.length)).toLocaleString('en')+"</td>");
+	document.write("</tr>");
+	document.write("</table>");
+
+</script>
+</body>
+</html>

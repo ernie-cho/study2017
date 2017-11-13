@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<body BACKGROUND="b_011.jpg">
+	<center>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<meta charset="euc-kr">
+	<font size=5 face=calibri color=#ffcc5c><b>Wellington Point QLD 4160, Austrailia </b></font>
+	<hr></hr>
+	<title>HIMALAYA RESORT</title>
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script>
+		function initialize() {
+			var Y_point			= -27.466448;		// Y 좌표
+			var X_point			= 153.239899;		// X 좌표
+
+			var zoomLevel		= 12;						// 지도의 확대 레벨 : 숫자가 클수록 확대정도가 큼
+
+			var markerTitle		= "HIMALAYA RESORT";		// 현재 위치 마커에 마우스를 오버을때 나타나는 정보
+			var markerMaxWidth	= 600;						// 마커를 클릭했을때 나타나는 말풍선의 최대 크기
+
+			// 말풍선 내용
+			var contentString	= '<div>' +
+			'<h2>HIMALAYA RESORT</h2>'+
+			'<p>Make your valueable vacation <br />' +
+            'with HIMALAYA RESORT</p>' +
+			'</div>';
+
+			var myLatlng = new google.maps.LatLng(Y_point, X_point);
+			var mapOptions = {
+								zoom: zoomLevel,
+								center: myLatlng,
+								mapTypeId: google.maps.MapTypeId.ROADMAP
+			}
+			var map = new google.maps.Map(document.getElementById('map_view'), mapOptions);
+
+			var marker = new google.maps.Marker({
+													position: myLatlng,
+													map: map,
+													title: markerTitle
+			});
+
+			var infowindow = new google.maps.InfoWindow(
+														{
+															content: contentString,
+															maxWidth: markerMaxWidth
+														}
+			);
+
+			google.maps.event.addListener(marker, 'click', function() {
+				infowindow.open(map, marker);
+			});
+		}
+	</script>
+</head>
+<body onload="initialize()">
+	<div id="map_view" style="width:300px; height:200px;"></div>
+	
+</body>
+</center>
+<hr></hr>
+</html>
